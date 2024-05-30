@@ -15,9 +15,6 @@ public class Main {
 
         try {
             ConvertFile convert = new ConvertFile(filePath, fileDest);
-            for (String f : convert.getFileList()) {
-                System.out.println(f);
-            }
 
             boolean result = convert.convertFiles();
             System.out.println("Result of process: " + result);

@@ -16,7 +16,7 @@ public class ConvertFile {
     public ArrayList<String> getFileList() {
         ArrayList<String> fileList = new ArrayList<>();
         File dir = new File(this.filePath);
-        File[] files = dir.listFiles((dir1, name) -> name.contains("wav") || name.contains("mp3"));
+        File[] files = dir.listFiles((dir1, name) -> name.contains("wav"));
         if (files != null) {
             for (File file : files) {
                 fileList.add(file.getName());
@@ -45,6 +45,7 @@ public class ConvertFile {
                 );
                 AudioInputStream uLawStream = AudioSystem.getAudioInputStream(uLawFormat, wavStream);
                 AudioSystem.write(uLawStream, AudioFileFormat.Type.WAVE, outputFile);
+                System.out.println("File " + inputFile + " exported to " + outputFile);
             }
         } catch (IOException | UnsupportedAudioFileException e) {
             System.err.println(e.getMessage());
