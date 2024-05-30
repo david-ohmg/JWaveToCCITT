@@ -47,7 +47,8 @@ public class ConvertFile {
                 AudioSystem.write(uLawStream, AudioFileFormat.Type.WAVE, outputFile);
             }
         } catch (IOException | UnsupportedAudioFileException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
+            e.getStackTrace();
             return false;
         }
         return true;
